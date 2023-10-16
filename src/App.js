@@ -1,25 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
 
+import bootstrap from 'bootstrap'
+
+import {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom/client';
+import Post from './Post';
+import axios from "axios";
+
+
 function App() {
+  const [posts, setPosts] = useState([]);
+  
+  const client = axios.create({
+    baseURL: 'https://api.spacexdata.com/v3/launches'
+  })
+  
+  const fetchPosts = async() => {
+    const response = await client.get();
+    setPosts(response.data);
+
+    console.log(response.data);
+  }
+ 
+ useEffect(() => {
+      fetchPosts()
+   }, []);
+   
+   
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+		<main>
+			<div className="container">
+					<div className='row'>
+						<div className='col-12 col-md-4 col-lg-3'>
+								{posts.map((post, index) => 
+									<Post 
+										key={index} 
+										mission_name={post.mission_name}
+										launch_date_utc={post.launch_date_utc} 
+										details={post.details}
+									/>
+								)}
+						</div>
+					</div>
+			</div>
+	</main>
+  )
 }
 
 export default App;
