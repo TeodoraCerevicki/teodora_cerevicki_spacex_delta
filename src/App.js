@@ -1,10 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 
-import bootstrap from 'bootstrap'
-
 import {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom/client';
 import Post from './Post';
 import axios from "axios";
 
@@ -19,8 +15,6 @@ function App() {
   const fetchPosts = async() => {
     const response = await client.get();
     setPosts(response.data);
-
-    console.log(response.data);
   }
  
  useEffect(() => {
