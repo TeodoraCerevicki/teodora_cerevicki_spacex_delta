@@ -1,4 +1,4 @@
-import rocket from "./images/rocket_launch.svg";
+import rocket from "../../images/rocket_launch.svg";
 
 export default function Post(props) {
   return (
