@@ -1,6 +1,14 @@
-$accent: #ff590b;
+:root {
+    --accent: #ff590b;
 
-$background-light: #fff;
+    --background-default: #fff;
+}
+
+[data-theme="dark"] {
+    --accent: #424c7a;
+
+    --background-default: #020a2e;
+}
 
 $font-color-light: #fff;
 

@@ -19,13 +19,13 @@
 
 .accent-button  {
     @extend %button-basic;
-    background-color: vars.$accent;
+    background-color:  var(--accent);;
     color: vars.$font-color-light;
 
 
     &:hover {
         background-color: transparent;
-        color: vars.$accent;
+        color:  var(--accent);;
     }
 }
 

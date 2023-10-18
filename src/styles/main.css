@@ -11976,6 +11976,24 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  --accent: #ff590b;
+  --background-default: #fff;
+}
+
+[data-theme=dark] {
+  --accent: #424c7a;
+  --background-default: #020a2e;
+}
+
+body {
+  background-color: var(--background-default);
+}
+
+p {
+  margin: 0;
+}
+
 .card {
   margin-top: 16px;
   padding: 16px;
@@ -11993,7 +12011,6 @@ textarea.form-control-lg {
 }
 .card .details {
   height: 24px;
-  margin-bottom: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   text-wrap: nowrap;
@@ -12001,7 +12018,7 @@ textarea.form-control-lg {
 .card .date {
   font-weight: 600;
   font-size: 14px;
-  color: #ff590b;
+  color: var(--accent);
 }
 .card .details-button {
   margin: 16px auto 0;
@@ -12020,15 +12037,19 @@ textarea.form-control-lg {
 }
 
 .accent-button {
-  background-color: #ff590b;
+  background-color: var(--accent);
   color: #fff;
 }
 .accent-button:hover {
   background-color: transparent;
-  color: #ff590b;
+  color: var(--accent);
 }
 
 .main-header {
   padding: 8px 16px;
-  background-color: #ff590b;
+  background-color: var(--accent);
+}
+.main-header .wrapper {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=main.css.map */

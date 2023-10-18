@@ -2,5 +2,10 @@
 
 .main-header {
     padding: vars.$small-gap vars.$defailt-gap;
-    background-color: vars.$accent;
+    background-color:  var(--accent);
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
 }

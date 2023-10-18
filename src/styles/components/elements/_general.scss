@@ -1,0 +1,9 @@
+@use '../../variables' as vars;
+
+body {
+    background-color: var(--background-default);
+}
+
+p {
+    margin: 0;
+}
