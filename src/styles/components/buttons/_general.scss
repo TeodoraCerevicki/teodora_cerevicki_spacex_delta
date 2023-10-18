@@ -1,0 +1,31 @@
+@use '../../variables' as vars;
+
+%button-basic {
+    display: block;
+    padding: 10px 25px;
+    transition: background-color .2s linear;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box: {
+        sizing: border-box;
+        shadow: none;
+    }
+
+    font: {
+        size: 16px;
+        weight: 600;
+    }
+}
+
+.accent-button  {
+    @extend %button-basic;
+    background-color: vars.$accent;
+    color: vars.$font-color-light;
+
+
+    &:hover {
+        background-color: vars.$background-light;
+        color: vars.$accent;
+    }
+}
+

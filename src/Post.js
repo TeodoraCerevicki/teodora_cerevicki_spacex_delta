@@ -6,13 +6,17 @@ export default function Post(props) {
       <section className="card">
         <header>
           <img className="image" alt="rocket" src={rocket} />
-          <h1 className="title">id {props.mission_name}</h1>
+          <h1 className="title">{props.mission_name}</h1>
         </header>
 
         <div className="content">
-          <p className="">{props.launch_date_utc}</p>
-          <p>{props.details}</p>
+          <span className="date">{props.launch_date_utc}</span>
+          <p className="details">{props.details}</p>
         </div>
+
+        <footer>
+            <button className="accent-button details-button">More Details</button>
+        </footer>
       </section>
     </div>
   );

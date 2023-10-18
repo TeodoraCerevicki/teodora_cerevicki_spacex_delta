@@ -1,0 +1,39 @@
+@use '../../variables' as vars;
+
+.card {
+    margin-top: vars.$defailt-gap;
+    padding: vars.$defailt-gap;
+    background-color: #eee;
+
+    .image {
+        display: block;
+        width: 100%;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .title {
+        margin-top: vars.$defailt-gap;
+        font-size: 26px;
+    }
+
+    .details {
+        height: 24px;
+        margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+    }
+
+    .date {
+        font: {
+            weight: 600;
+            size: 14px;
+        }
+        color: vars.$accent;
+    }
+
+    .details-button {
+        margin: vars.$defailt-gap auto 0;
+    }
+}
