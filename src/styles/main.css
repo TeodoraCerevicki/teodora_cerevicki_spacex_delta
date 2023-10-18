@@ -12026,4 +12026,9 @@ textarea.form-control-lg {
 .accent-button:hover {
   background-color: transparent;
   color: #ff590b;
+}
+
+.main-header {
+  padding: 8px 16px;
+  background-color: #ff590b;
 }/*# sourceMappingURL=main.css.map */

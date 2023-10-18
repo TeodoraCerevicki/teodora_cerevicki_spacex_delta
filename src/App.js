@@ -1,10 +1,14 @@
+import Header from "./components/header/Header";
 import Launch from "./components/launchs/Launch";
 
 function App() {
   return (
-    <main>
-		<Launch />
-    </main>
+    <div>
+		<Header />
+		<main>
+			<Launch />
+		</main>
+    </div>
   );
 }
 

@@ -1,0 +1,6 @@
+@use '../../variables' as vars;
+
+.main-header {
+    padding: vars.$small-gap vars.$defailt-gap;
+    background-color: vars.$accent;
+}
