@@ -3,7 +3,7 @@
 .card {
     margin-top: vars.$defailt-gap;
     padding: vars.$defailt-gap;
-    background-color: #eee;
+    background-color: var(--card-background-color);
 
     .image {
         display: block;
@@ -29,7 +29,7 @@
             weight: 600;
             size: 14px;
         }
-        color:  var(--accent);;
+        color: var(--accent);
     }
 
     .details-button {

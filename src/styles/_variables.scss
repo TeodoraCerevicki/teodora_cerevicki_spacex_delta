@@ -2,12 +2,16 @@
     --accent: #ff590b;
 
     --background-default: #fff;
+
+    --card-background-color: #eee;
 }
 
 [data-theme="dark"] {
     --accent: #424c7a;
 
     --background-default: #020a2e;
+
+    --card-background-color: #c3c3c3;
 }
 
 $font-color-light: #fff;
