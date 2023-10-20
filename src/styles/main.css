@@ -12054,4 +12054,8 @@ p {
 .main-header .wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.search-field {
+  margin: 16px 0;
 }/*# sourceMappingURL=main.css.map */
