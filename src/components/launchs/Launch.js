@@ -1,42 +1,60 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Card from "./Card";
+import { useState, useRef, useCallback } from 'react'
+import usePosts from '../../hooks/usePosts'
+import Card from '../cards/Card'
 
 function Launch() {
-  const [data, setData] = useState([]);
-  const [records, setRecords] = useState([]);
+  const [pageNum, setPageNum] = useState(1)
+  const {
+      isLoading,
+      isError,
+      error,
+      results,
+      hasNextPage
+  } = usePosts(pageNum)
 
-  useEffect(() => {
-    axios.get('https://api.spacexdata.com/v3/launches')
-    .then(res => {
-      setData(res.data)
-      setRecords(res.data)
-    })
-    .catch(error => console.log(error));
-  }, [])
+  const intObserver = useRef()
+  const lastPostRef = useCallback(post => {
+      if (isLoading) return
 
-  const Filter = (event) => {
-    const value = event.target.value;
+      if (intObserver.current) intObserver.current.disconnect()
 
-    setRecords(data.filter(f => f.mission_name.toString().toLowerCase().includes(value)))
-  }
+      intObserver.current = new IntersectionObserver(posts => {
+          if (posts[0].isIntersecting && hasNextPage) {
+              console.log('We are near the last post!')
+              setPageNum(prev => prev + 1)
+          }
+      })
+
+      if (post) intObserver.current.observe(post)
+  }, [isLoading, hasNextPage])
+
+  if (isError) return <p className='center'>Error: {error.message}</p>
+
+  const content = results.map((post, i) => {
+      if (results.length === i + 1) {
+          return <Card 
+                  ref={lastPostRef}
+                  key={i} 
+                  post={post} 
+                  mission_name={post.mission_name}
+                  launch_date_utc={post.launch_date_utc}
+                  details={post.details}
+          />
+      }
+      return <Card 
+              key={i} 
+              post={post} 
+              mission_name={post.mission_name}
+              launch_date_utc={post.launch_date_utc}
+              details={post.details}
+      />
+  })
 
 return (
     <div className="container">
         <div className="row">
-
-          <div className="col-12">
-            <input onChange={Filter} className="search-field" type="text" placeholder="Search launch"/>
-          </div>
-
-          {records.map((item, index) => (
-            <Card
-              key={index}
-              mission_name={item.mission_name}
-              launch_date_utc={item.launch_date_utc}
-              details={item.details}
-            />
-          ))}
+            {content}
+            {isLoading && <p className="center">Loading more posts...</p>}
         </div>
     </div>
   )
