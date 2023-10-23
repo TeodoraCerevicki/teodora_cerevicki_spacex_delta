@@ -15,7 +15,7 @@ export default function Post(props) {
         </div>
 
         <footer>
-            <button className="accent-button details-button">More Details</button>
+          <button className="accent-button details-button">More Details</button>
         </footer>
       </section>
     </div>
